@@ -10,7 +10,7 @@ logging.basicConfig(filename="scrapper.log" , level=logging.INFO)
 app = Flask(__name__)
 
 @app.route("/", methods = ['GET'])
-def homepage():
+def homepage(): 
     return render_template("index.html")
 
 @app.route("/review" , methods = ['POST' , 'GET'])
@@ -75,7 +75,7 @@ def index():
             logging.info("log my final result {}".format(reviews))
 
             
-            client = pymongo.MongoClient("mongodb+srv://pwskills:pwskills@cluster0.ln0bt5m.mongodb.net/?retryWrites=true&w=majority")
+            client = pymongo.MongoClient("mongodb+srv://pwskills:pwskills@cluster0.j6rcf0z.mongodb.net/?retryWrites=true&w=majority")
             db =client['scrapper_eng_pwskills']
             coll_pw_eng = db['scraper_pwskills_eng']
             coll_pw_eng.insert_many(reviews)
